@@ -1,9 +1,9 @@
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-  # Project Winter 
+  # Project Title 
       
   ## Description
   
-   Running
+   Project Description
   
   ## Table of Contents
   
@@ -15,25 +15,28 @@
   
   ## Installation
   
-   Running
+   Project Install
   
   ## usage
   
-   Running
-  
-  ## License
-  
-  This Project is Licensed under the GPL license. https://www.gnu.org/licenses/gpl-3.0 
-  
+   Project Use 
+
+## License
+
+  This Project is Licensed under the GPL license,
+
+  https://www.gnu.org/licenses/gpl-3.0 
+
   ## Contribution
   
-   Rybbubg
+   Project contribution
   
   ## Testing
   
-   ryning
+   Project Testing
   
   ## Questions
   
-  Github: https://github.com/running,
-  Email: running
+  Github: https://github.com/JoshGit,
+
+  Email: Josh@gmail.com

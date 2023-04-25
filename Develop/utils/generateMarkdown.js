@@ -2,16 +2,13 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(response) {
   if (response.license === "MIT") {
-    badge =
-      "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+    return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
   } else if (response.license === "Apache") {
-    badge =
-      "[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+    return "[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
   } else if (response.license === "GPL") {
-    badge =
-      "[![License: GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
+    return "[![License: GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
   } else {
-    return (badge = "");
+    return "";
   }
 }
 
@@ -19,14 +16,14 @@ function renderLicenseBadge(response) {
 // If there is no license, return an empty string
 function renderLicenseLink(response) {
   if (response.license === "MIT") {
-    return `This Project is Licensed under the MIT license. 
-    https://opensource.org/licenses/MIT`;
+    return `This Project is Licensed under the MIT license,\n
+  https://opensource.org/licenses/MIT`;
   } else if (response.license === "Apache") {
-    return `This Project is Licensed under the Apache license. 
-    https://opensource.org/licenses/Apache-2.0`;
+    return `This Project is Licensed under the Apache license,\n
+  https://opensource.org/licenses/Apache-2.0`;
   } else if (response.license === "GPL") {
-    return `This Project is Licensed under the GPL license. 
-    https://www.gnu.org/licenses/gpl-3.0`;
+    return `This Project is Licensed under the GPL license,\n
+  https://www.gnu.org/licenses/gpl-3.0`;
   } else {
     return "";
   }
@@ -34,13 +31,21 @@ function renderLicenseLink(response) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(response) {
+  if (response.license !== "None / NA") {
+    return `## License
+
+  ${renderLicenseLink(response)}`;
+  } else {
+    return "";
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 async function generateMarkdown(response) {
   renderLicenseBadge(response);
 
-  return `${badge}
+  return `${renderLicenseBadge(response)}
   # ${response.title} 
       
   ## Description
@@ -61,12 +66,9 @@ async function generateMarkdown(response) {
   
   ## usage
   
-   ${response.use}
-  
-  ## License
-  
-  ${renderLicenseLink(response)} 
-  
+   ${response.use} \n
+${renderLicenseSection(response)} 
+
   ## Contribution
   
    ${response.contribution}
@@ -77,7 +79,7 @@ async function generateMarkdown(response) {
   
   ## Questions
   
-  Github: https://github.com/${response.username},
+  Github: https://github.com/${response.username},\n
   Email: ${response.email}`;
 }
 
